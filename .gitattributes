@@ -1,0 +1,4 @@
+# Force LF line endings for deployment files
+*.sh text eol=lf
+*.txt text eol=lf
+Procfile text eol=lf
