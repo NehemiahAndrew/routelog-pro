@@ -45,7 +45,7 @@ function drawLogGrid(canvas, segments, isDark) {
   const width = rect.width;
   const height = rect.height;
 
-  const labelWidth = 120;
+  const labelWidth = width < 500 ? 80 : 120;
   const topPadding = 28;
   const bottomPadding = 8;
   const gridLeft = labelWidth;
@@ -69,8 +69,10 @@ function drawLogGrid(canvas, segments, isDark) {
   ctx.fillRect(0, 0, width, height);
 
   // ─── Hour labels at top ─────────────────────────────────────
+  const fontSize = width < 500 ? '8px' : '10px';
+  const labelFontSize = width < 500 ? '8px' : '10px';
   ctx.fillStyle = colors.headerText;
-  ctx.font = '10px Inter, system-ui, sans-serif';
+  ctx.font = `${fontSize} Inter, system-ui, sans-serif`;
   ctx.textAlign = 'center';
   for (let h = 0; h <= 24; h++) {
     const x = gridLeft + (h / 24) * gridWidth;
@@ -84,7 +86,7 @@ function drawLogGrid(canvas, segments, isDark) {
 
   // ─── Row labels on the left ─────────────────────────────────
   ctx.textAlign = 'right';
-  ctx.font = '10px Inter, system-ui, sans-serif';
+  ctx.font = `${labelFontSize} Inter, system-ui, sans-serif`;
   STATUS_ORDER.forEach((key, i) => {
     const y = topPadding + i * rowHeight + rowHeight / 2;
 
@@ -101,7 +103,7 @@ function drawLogGrid(canvas, segments, isDark) {
 
     // Label text
     ctx.fillStyle = colors.text;
-    ctx.font = '600 10px Inter, system-ui, sans-serif';
+    ctx.font = `600 ${labelFontSize} Inter, system-ui, sans-serif`;
     ctx.textAlign = 'left';
     ctx.fillText(STATUS_LABELS[key], 20, y + 4);
   });
@@ -237,7 +239,7 @@ function ELDLogCanvas({ segments, isDark }) {
     <canvas
       ref={canvasRef}
       className="w-full rounded-lg border border-gray-200 dark:border-gray-600"
-      style={{ height: '220px' }}
+      style={{ height: window.innerWidth < 640 ? '180px' : '220px' }}
     />
   );
 }
@@ -293,7 +295,7 @@ export default function ELDLogs() {
     <div className="fade-in space-y-6">
       {/* Day Tabs */}
       {logSheets.length > 1 && (
-        <div className="flex items-center gap-2 flex-wrap">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
           <button
             onClick={() => setActiveDay(Math.max(0, activeDay - 1))}
             disabled={activeDay === 0}
@@ -329,8 +331,8 @@ export default function ELDLogs() {
       {/* Log Sheet Card */}
       <div className="card">
         {/* ─── Header: FMCSA Form Style ─── */}
-        <div className="p-6 border-b border-gray-100 dark:border-gray-700">
-          <div className="flex items-center justify-between mb-5">
+        <div className="p-4 sm:p-6 border-b border-gray-100 dark:border-gray-700">
+          <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-primary-800 flex items-center justify-center">
                 <FileText className="w-5 h-5 text-white" />
@@ -350,7 +352,7 @@ export default function ELDLogs() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {[
               { label: 'Date', value: currentLog.date },
               { label: 'Driver', value: 'John Doe' },
@@ -370,8 +372,8 @@ export default function ELDLogs() {
         </div>
 
         {/* ─── 24-Hour Log Grid — Canvas Drawn ─── */}
-        <div className="p-6">
-          <h4 className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">
+        <div className="p-4 sm:p-6">
+          <h4 className="text-xs sm:text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">
             24-Hour Record of Duty Status
           </h4>
 
@@ -393,7 +395,7 @@ export default function ELDLogs() {
 
         {/* ─── Remarks ─── */}
         {currentLog.remarks && currentLog.remarks.length > 0 && (
-          <div className="px-6 pb-4">
+          <div className="px-4 sm:px-6 pb-4">
             <h4 className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Remarks & Condition of Vehicle</h4>
             <div className="bg-surface-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-100 dark:border-gray-600">
               {currentLog.remarks.map((remark, i) => (
@@ -407,9 +409,9 @@ export default function ELDLogs() {
         )}
 
         {/* ─── Summary Totals ─── */}
-        <div className="p-6 bg-surface-50 dark:bg-gray-800/50 border-t border-gray-100 dark:border-gray-700">
-          <h4 className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-4">Daily Totals</h4>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="p-4 sm:p-6 bg-surface-50 dark:bg-gray-800/50 border-t border-gray-100 dark:border-gray-700">
+          <h4 className="text-xs sm:text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 sm:mb-4">Daily Totals</h4>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             <div className="card p-4 text-center">
               <div className="flex items-center justify-center gap-2 mb-1">
                 <TruckIcon className="w-4 h-4 text-primary-800" />

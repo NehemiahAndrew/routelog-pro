@@ -27,7 +27,7 @@ export default function Header({ onMenuToggle }) {
   const description = pageDescriptions[location.pathname] || '';
 
   return (
-    <header className="h-16 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between px-6 sticky top-0 z-30 transition-colors duration-300">
+    <header className="h-14 sm:h-16 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between px-3 sm:px-6 sticky top-0 z-30 transition-colors duration-300">
       <div className="flex items-center gap-4">
         <button
           onClick={onMenuToggle}
@@ -36,7 +36,7 @@ export default function Header({ onMenuToggle }) {
           <Menu className="w-5 h-5" />
         </button>
         <div>
-          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">{title}</h2>
+          <h2 className="text-base sm:text-lg font-bold text-gray-900 dark:text-gray-100">{title}</h2>
           <p className="text-xs text-gray-400 hidden sm:block">{description}</p>
         </div>
       </div>

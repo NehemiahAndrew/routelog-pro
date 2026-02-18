@@ -68,17 +68,17 @@ export default function Dashboard() {
 
   return (
     <div className="fade-in">
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-6">
         {/* ─── Left Column: Trip Form ─── */}
         <div className="lg:col-span-3">
-          <div className="card p-6">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-primary-800 flex items-center justify-center">
-                <Navigation className="w-5 h-5 text-white" />
+          <div className="card p-4 sm:p-6">
+            <div className="flex items-center gap-3 mb-4 sm:mb-6">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-primary-800 flex items-center justify-center">
+                <Navigation className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
               <div>
-                <h3 className="section-title">Plan New Trip</h3>
-                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Enter your trip details to generate route and logs</p>
+                <h3 className="section-title text-base sm:text-lg">Plan New Trip</h3>
+                <p className="text-[10px] sm:text-xs text-gray-400 dark:text-gray-500 mt-0.5">Enter your trip details to generate route and logs</p>
               </div>
             </div>
 
@@ -183,14 +183,14 @@ export default function Dashboard() {
 
         {/* ─── Right Column: Trip Summary ─── */}
         <div className="lg:col-span-2">
-          <div className="card p-6 h-full">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-accent-500 flex items-center justify-center">
-                <Route className="w-5 h-5 text-white" />
+          <div className="card p-4 sm:p-6 h-full">
+            <div className="flex items-center gap-3 mb-4 sm:mb-6">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-accent-500 flex items-center justify-center">
+                <Route className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
               <div>
-                <h3 className="section-title">Trip Summary</h3>
-                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Route calculation results</p>
+                <h3 className="section-title text-base sm:text-lg">Trip Summary</h3>
+                <p className="text-[10px] sm:text-xs text-gray-400 dark:text-gray-500 mt-0.5">Route calculation results</p>
               </div>
             </div>
 

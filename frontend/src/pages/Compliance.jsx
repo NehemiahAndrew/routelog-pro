@@ -150,15 +150,15 @@ export default function Compliance() {
   return (
     <div className="fade-in space-y-6">
       {/* Overall Status */}
-      <div className="card p-6">
-        <div className="flex items-center justify-between flex-wrap gap-4">
+      <div className="card p-4 sm:p-6">
+        <div className="flex items-center justify-between flex-wrap gap-3 sm:gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center">
-              <ShieldCheck className="w-6 h-6 text-emerald-600" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-100 flex items-center justify-center">
+              <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600" />
             </div>
             <div>
-              <h3 className="section-title">Overall HOS Compliance</h3>
-              <p className="text-sm text-gray-400 dark:text-gray-500 mt-0.5">Property-Carrying Driver (70hr/8day)</p>
+              <h3 className="section-title text-base sm:text-lg">Overall HOS Compliance</h3>
+              <p className="text-xs sm:text-sm text-gray-400 dark:text-gray-500 mt-0.5">Property-Carrying Driver (70hr/8day)</p>
             </div>
           </div>
           <span className="badge-success text-sm py-1.5 px-4">
@@ -169,7 +169,7 @@ export default function Compliance() {
       </div>
 
       {/* Compliance Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
         {complianceCards.map((card, i) => {
           const Icon = card.icon;
           const status = card.getStatus(card.used);
@@ -178,17 +178,17 @@ export default function Compliance() {
           const pct = Math.min((card.used / card.limit) * 100, 100);
 
           return (
-            <div key={i} className="card-hover p-6 fade-in" style={{ animationDelay: `${i * 100}ms` }}>
+            <div key={i} className="card-hover p-4 sm:p-6 fade-in" style={{ animationDelay: `${i * 100}ms` }}>
               {/* Header */}
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className={`w-11 h-11 rounded-lg ${config.bgColor} flex items-center justify-center`}>
-                    <Icon className={`w-5 h-5 ${config.iconColor}`} />
+              <div className="flex items-start justify-between mb-3 sm:mb-4 flex-wrap gap-2">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-lg ${config.bgColor} flex items-center justify-center flex-shrink-0`}>
+                    <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${config.iconColor}`} />
                   </div>
-                  <h4 className="text-base font-bold text-gray-900 dark:text-gray-100">{card.title}</h4>
+                  <h4 className="text-sm sm:text-base font-bold text-gray-900 dark:text-gray-100">{card.title}</h4>
                 </div>
-                <span className={config.badge}>
-                  <StatusIcon className="w-3.5 h-3.5 mr-1" />
+                <span className={`${config.badge} text-[10px] sm:text-xs`}>
+                  <StatusIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1" />
                   {config.badgeText}
                 </span>
               </div>

@@ -172,17 +172,17 @@ export default function RouteOverview() {
   return (
     <div className="fade-in space-y-6">
       {/* Stat Summary */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         {statCards.map((stat, i) => {
           const Icon = stat.icon;
           return (
-            <div key={i} className="stat-card">
-              <div className={`w-11 h-11 rounded-lg ${stat.bg} flex items-center justify-center`}>
-                <Icon className={`w-5 h-5 ${stat.color}`} />
+            <div key={i} className="stat-card flex-col sm:flex-row text-center sm:text-left">
+              <div className={`w-10 h-10 sm:w-11 sm:h-11 rounded-lg ${stat.bg} flex items-center justify-center mx-auto sm:mx-0`}>
+                <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${stat.color}`} />
               </div>
               <div>
-                <p className="text-xs text-gray-400 font-medium">{stat.label}</p>
-                <p className="text-xl font-bold text-gray-900 dark:text-gray-100">{stat.value}</p>
+                <p className="text-[10px] sm:text-xs text-gray-400 font-medium">{stat.label}</p>
+                <p className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100">{stat.value}</p>
               </div>
             </div>
           );
@@ -203,10 +203,10 @@ export default function RouteOverview() {
             <div
               ref={mapRef}
               className="w-full"
-              style={{ height: '500px' }}
+              style={{ height: window.innerWidth < 640 ? '300px' : window.innerWidth < 1024 ? '400px' : '500px' }}
             />
             {/* Map Legend */}
-            <div className="p-4 border-t border-gray-100 dark:border-gray-700 flex flex-wrap gap-4">
+            <div className="p-3 sm:p-4 border-t border-gray-100 dark:border-gray-700 flex flex-wrap gap-3 sm:gap-4">
               {[
                 { color: 'bg-primary-800', label: 'Start' },
                 { color: 'bg-amber-500', label: 'Pickup' },
@@ -225,7 +225,7 @@ export default function RouteOverview() {
 
         {/* Timeline */}
         <div className="lg:col-span-1">
-          <div className="card p-5 max-h-[620px] overflow-y-auto">
+          <div className="card p-4 sm:p-5 max-h-[400px] lg:max-h-[620px] overflow-y-auto">
             <h3 className="section-title mb-4">Trip Timeline</h3>
 
             {Object.entries(timelineByDay).map(([day, events]) => (

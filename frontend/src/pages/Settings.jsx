@@ -62,16 +62,16 @@ export default function Settings() {
   };
 
   return (
-    <div className="fade-in max-w-4xl space-y-6">
+    <div className="fade-in max-w-4xl space-y-4 sm:space-y-6">
       <form onSubmit={handleSave} className="space-y-6">
         {/* Driver Profile */}
-        <div className="card p-6">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-lg bg-primary-800 flex items-center justify-center">
-              <User className="w-5 h-5 text-white" />
+        <div className="card p-4 sm:p-6">
+          <div className="flex items-center gap-3 mb-4 sm:mb-6">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-primary-800 flex items-center justify-center">
+              <User className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
             <div>
-              <h3 className="section-title">Driver Profile</h3>
+              <h3 className="section-title text-base sm:text-lg">Driver Profile</h3>
               <p className="text-xs text-gray-400 mt-0.5">Personal and license information</p>
             </div>
           </div>
@@ -85,13 +85,13 @@ export default function Settings() {
         </div>
 
         {/* Carrier Info */}
-        <div className="card p-6">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-lg bg-accent-500 flex items-center justify-center">
-              <Building2 className="w-5 h-5 text-white" />
+        <div className="card p-4 sm:p-6">
+          <div className="flex items-center gap-3 mb-4 sm:mb-6">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-accent-500 flex items-center justify-center">
+              <Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
             <div>
-              <h3 className="section-title">Carrier Information</h3>
+              <h3 className="section-title text-base sm:text-lg">Carrier Information</h3>
               <p className="text-xs text-gray-400 mt-0.5">Company and equipment details</p>
             </div>
           </div>
@@ -107,13 +107,13 @@ export default function Settings() {
         </div>
 
         {/* HOS Assumptions */}
-        <div className="card p-6">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-lg bg-purple-600 flex items-center justify-center">
-              <ShieldCheck className="w-5 h-5 text-white" />
+        <div className="card p-4 sm:p-6">
+          <div className="flex items-center gap-3 mb-4 sm:mb-6">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-purple-600 flex items-center justify-center">
+              <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
             <div>
-              <h3 className="section-title">HOS Assumptions</h3>
+              <h3 className="section-title text-base sm:text-lg">HOS Assumptions</h3>
               <p className="text-xs text-gray-400 mt-0.5">Defaults used for route calculations</p>
             </div>
           </div>
@@ -149,13 +149,13 @@ export default function Settings() {
         </div>
 
         {/* Appearance */}
-        <div className="card p-6">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center">
-              <Moon className="w-5 h-5 text-white" />
+        <div className="card p-4 sm:p-6">
+          <div className="flex items-center gap-3 mb-4 sm:mb-6">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gray-800 flex items-center justify-center">
+              <Moon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
             <div>
-              <h3 className="section-title">Appearance</h3>
+              <h3 className="section-title text-base sm:text-lg">Appearance</h3>
               <p className="text-xs text-gray-400 mt-0.5">Customize your display preferences</p>
             </div>
           </div>
