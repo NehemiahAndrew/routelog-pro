@@ -15,7 +15,6 @@ venv/
 
 # Django
 backend/db.sqlite3
-backend/staticfiles/
 *.log
 
 # Node
