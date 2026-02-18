@@ -90,6 +90,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS
 CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:5173,http://localhost:3000').split(',')
 CORS_ALLOW_ALL_ORIGINS = DEBUG
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*-nehemiahandrews-projects\.vercel\.app$",
+    r"^https://routelog-pro.*\.vercel\.app$",
+]
 
 # Security settings for production
 if not DEBUG:
