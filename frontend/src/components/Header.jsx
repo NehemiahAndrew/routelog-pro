@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Menu, Bell, Search } from 'lucide-react';
+import { Menu, Search } from 'lucide-react';
 import { TripContext } from '../App';
 
 const pageTitles = {
@@ -56,15 +56,6 @@ export default function Header({ onMenuToggle }) {
             placeholder="Search..."
             className="bg-transparent text-sm text-gray-600 dark:text-gray-300 placeholder-gray-400 outline-none w-40"
           />
-        </div>
-
-        <button className="relative p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400">
-          <Bell className="w-5 h-5" />
-          <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full" />
-        </button>
-
-        <div className="w-8 h-8 rounded-full bg-primary-800 flex items-center justify-center text-white text-xs font-bold lg:hidden">
-          JD
         </div>
       </div>
     </header>
