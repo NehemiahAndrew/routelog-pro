@@ -11,7 +11,6 @@ build/
 # Virtual environment
 backend/venv/
 venv/
-.env
 
 # Django
 backend/db.sqlite3
@@ -22,7 +21,6 @@ frontend/node_modules/
 frontend/dist/
 
 # IDE
-.vscode/
 .idea/
 *.swp
 *.swo
@@ -34,3 +32,5 @@ Thumbs.db
 temp_auto_push.bat
 temp_interactive_push.bat
 branch_structure.json
+config.bat
+node_modules
